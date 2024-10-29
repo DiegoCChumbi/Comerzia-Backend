@@ -43,7 +43,7 @@ public class DBManagerMain {
         DBManager dbManager = DBManager.getInstance();
         System.out.println("Conexión DBManager: " + dbManager);
         ProveedorBOTest.testProveedorBO();
-//        ClienteBOTest.testClienteBO();
-        //VisitaBOTest.testVisitaBO();
+        ClienteBOTest.testClienteBO();
+        VisitaBOTest.testVisitaBO();
     }
 }

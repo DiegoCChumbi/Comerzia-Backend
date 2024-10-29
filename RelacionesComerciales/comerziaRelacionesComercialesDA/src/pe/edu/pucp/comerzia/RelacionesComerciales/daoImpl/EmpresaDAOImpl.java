@@ -26,7 +26,7 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
         this.retornarLlavePrimaria = false;
         return id;
     }
-    
+
     @Override
     public Integer insertar(Empresa empresa, Boolean usarTransaccion, Connection conexion) {
         this.usarTransaccion = usarTransaccion;
@@ -51,14 +51,14 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
         this.incluirParametroString(3, this.empresa.getTelefono());
         this.incluirParametroString(4, this.empresa.getEmail());
         this.incluirParametroString(5, this.empresa.getTipoIndustria());
-    }        
+    }
 
     @Override
     public Integer modificar(Empresa empresa) {
         this.empresa = empresa;
         return super.modificar();
     }
-    
+
     @Override
     public Integer modificar(Empresa empresa, Boolean usarTransaccion, Connection conexion) {
         this.usarTransaccion = usarTransaccion;
@@ -91,7 +91,7 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
         this.empresa = empresa;
         return super.eliminar();
     }
-    
+
     @Override
     public Integer eliminar(Empresa empresa, Boolean usarTransaccion, Connection conexion) {
         this.usarTransaccion = usarTransaccion;
@@ -148,7 +148,7 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
     protected void limpiarObjetoDelResultSet() {
         this.empresa = null;
     }
-    
+
     @Override
     public Boolean existeEmpresa(Empresa empresa) {
         this.empresa = empresa;
@@ -157,12 +157,16 @@ public class EmpresaDAOImpl extends DAOImpl implements EmpresaDAO {
             this.abrirConexion();
             String sql = "select idEmpresa from Empresa where ";
             sql = sql.concat("nombre=? ");
-            sql = sql.concat("and tipoIndustria=? ");
+            sql = sql.concat("and direccion=? ");
+            sql = sql.concat("and telefono=? ");
             sql = sql.concat("and email=?");
+            sql = sql.concat("and tipoIndustria=? ");
             this.colocarSQLenStatement(sql);
             this.incluirParametroString(1, this.empresa.getNombre());
-            this.incluirParametroString(2, this.empresa.getTipoIndustria());
-            this.incluirParametroString(3, this.empresa.getEmail());
+            this.incluirParametroString(2, this.empresa.getDireccion());
+            this.incluirParametroString(3, this.empresa.getTelefono());
+            this.incluirParametroString(4, this.empresa.getEmail());
+            this.incluirParametroString(5, this.empresa.getTipoIndustria());
             this.ejecutarConsultaEnBD(sql);
             if (this.resultSet.next()) {
                 idEmpresa = this.resultSet.getInt("idEmpresa");

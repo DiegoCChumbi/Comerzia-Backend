@@ -26,6 +26,7 @@ public class Proveedor extends Empresa{
         setNombre(nombre);
         setDireccion(direccion);
         setEmail(email);
+        setTelefono(telefono);
         setTipoIndustria(tipoIndustria);
         this.fecha_afiliacion=fecha_afiliacion;
         this.RUC=RUC;
@@ -38,6 +39,7 @@ public class Proveedor extends Empresa{
             Date fecha_afiliacion, String RUC, String razonSocial, Double calificacion, String pais){
         setIdEmpresa(idEmpresa);
         setNombre(nombre);
+        setTelefono(telefono);
         setDireccion(direccion);
         setEmail(email);
         setTipoIndustria(tipoIndustria);

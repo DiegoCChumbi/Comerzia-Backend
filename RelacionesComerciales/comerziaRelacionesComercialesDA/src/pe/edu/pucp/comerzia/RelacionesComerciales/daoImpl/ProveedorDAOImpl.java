@@ -200,7 +200,7 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
         String sql = "select ";
         sql = sql.concat(obtenerProyeccionParaSelect());
         sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" pro ");
-        sql = sql.concat("join empresa emp on emp.idEmpresa = pro.idEmpresa ");
+        sql = sql.concat("join Empresa emp on emp.idEmpresa = pro.idEmpresa ");
         if (limite != null && limite > 0) {
             sql = sql.concat(" limit ").concat(limite.toString());
         }
@@ -230,10 +230,6 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
         this.proveedor.setTelefono(this.resultSet.getString("telefono"));
         this.proveedor.setEmail(this.resultSet.getString("email"));
         this.proveedor.setTipoIndustria(this.resultSet.getString("tipoIndustria"));
-        this.proveedor.setFecha_afiliacion(this.resultSet.getTimestamp("fecha_afiliacion"));
-        this.proveedor.setEmail(this.resultSet.getString("razonSocial"));
-        this.proveedor.setCalificacion(this.resultSet.getDouble("calificacion"));
-        this.proveedor.setPais(this.resultSet.getString("pais"));
     }
 
     @Override
@@ -249,7 +245,7 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
         String sql = "select ";
         sql = sql.concat(this.obtenerProyeccionParaSelect());
         sql = sql.concat(" from ").concat(this.nombre_tabla).concat(" pro ");
-        sql = sql.concat("join empresa emp on emp.idEmpresa = pro.idEmpresa ");
+        sql = sql.concat("join Empresa emp on emp.idEmpresa = pro.idEmpresa ");
         sql = sql.concat(" where ");
         sql = sql.concat(this.obtenerPredicadoParaLlavePrimaria());
         return sql;
@@ -279,7 +275,7 @@ public class ProveedorDAOImpl extends DAOImpl implements ProveedorDAO {
             if (abreConexion) {
                 this.abrirConexion();
             }
-            String sql = "select idEmpresa from proveedor where ";
+            String sql = "select idEmpresa from Proveedor where ";
             sql = sql.concat("idEmpresa=? ");
             this.colocarSQLenStatement(sql);
             this.incluirParametroInt(1, this.proveedor.getIdEmpresa());

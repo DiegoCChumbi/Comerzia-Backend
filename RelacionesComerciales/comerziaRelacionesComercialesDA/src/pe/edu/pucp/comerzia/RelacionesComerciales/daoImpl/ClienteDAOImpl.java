@@ -224,6 +224,7 @@ public class ClienteDAOImpl extends DAOImpl implements ClienteDAO {
         this.cliente.setTelefono(this.resultSet.getString("telefono"));
         this.cliente.setEmail(this.resultSet.getString("email"));
         this.cliente.setTipoIndustria(this.resultSet.getString("tipoIndustria"));
+        this.cliente.setIdCliente(this.resultSet.getInt("idCliente"));
         this.cliente.setFechaRegistro(this.resultSet.getTimestamp("fechaRegistro"));
         this.cliente.setFechaUltimaCompra(this.resultSet.getTimestamp("fechaUltimaCompra"));
     }

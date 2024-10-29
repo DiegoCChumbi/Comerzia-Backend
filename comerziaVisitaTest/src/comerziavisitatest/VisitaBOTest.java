@@ -72,11 +72,11 @@ public class VisitaBOTest {
         //Duration duracion = Duration.ofHours(2).plusMinutes(30);
         Double duracion = 2.5;
         
-        resultado = visitaBO.insertar(fechaCreacion,duracion,9,1);
+        resultado = visitaBO.insertar(fechaCreacion,duracion,51,51);
         System.out.println("Llave primaria insertada: " + resultado);
         listaId.add(resultado);
         
-        resultado = visitaBO.insertar(fechaCreacion,duracion,10,1);
+        resultado = visitaBO.insertar(fechaCreacion,duracion,51,51);
         System.out.println("Llave primaria insertada: " + resultado);
         listaId.add(resultado);
     }
